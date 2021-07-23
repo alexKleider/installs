@@ -1,0 +1,16 @@
+
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+pip install --user virtualenvwrapper
+echo "source virtualenvwrapper.sh" >> ~/.bashrc
+source ~/.bashrc
+mkvirtualenv --python=python3.6 p36
+
+Indeed this is why the recommendation these days is to install as
+  python -m pip install
+instead of standalone
+  pip install
+... that way the pip is sure to match the python, for when you're
+ using a particular virtualenv, etc.
+

@@ -1,0 +1,33 @@
+# commands after doing an lubutu install long ago.
+sudo apt update
+sudo apt upgrade
+sudo apt-get -y install vim git git-doc vim-doc vim-scripts openssh-server python3-pip
+sudo apt-get remove openoffice.org-core
+sudo apt autoremove
+sudo apt install libreoffice
+
+
+pip install --user virtualenvwrapper
+pip3 install --user virtualenvwrapper
+pip install --upgrade pip
+pip3 install --upgrade pip
+pip3 install --user virtualenvwrapper
+pip3 install --upgrade pip3
+mkvirtualenv --python=python3.6 p3
+source virtualenvwrapper.sh
+which virtualenvwrapper.sh
+echo "source virtualenvwrapper.sh" >> ~/.bashrc
+source virtualenvwrapper.sh
+source ~/.bashrc
+sudo apt install virtualenvwrapper
+sudo apt-get install python3-venv
+sudo apt install python3.6-venv
+
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+
+pip install --user virtualenvwrapper
+echo "source virtualenvwrapper.sh" >> ~/.bashrc
+source ~/.bashrc
+mkvirtualenv --python=python3.6 p36

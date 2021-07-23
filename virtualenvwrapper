@@ -1,0 +1,50 @@
+First do a Debian live USB install.
+
+https://medium.com/@gitudaniel/installing-virtualenvwrapper-for-python3-ad3dfea7c717
+
+    # apt install python3-pip
+    $ pip3 install --user virtualenvwrapper
+
+Note: listing of ~/.local/bin now yields:
+-rwxr-xr-x 1 alex alex   214 Oct 16 16:25 pbr
+-rwxr-xr-x 1 alex alex   241 Oct 16 16:25 virtualenv
+-rwxr-xr-x 1 alex alex   217 Oct 16 16:25 virtualenv-clone
+-rwxr-xr-x 1 alex alex  2210 Oct 16 16:25 virtualenvwrapper_lazy.sh
+-rwxr-xr-x 1 alex alex 41703 Oct 16 16:25 virtualenvwrapper.sh
+
+Edit ~/.bashrc
+export WORKON_HOME="$HOME/.virtualenvs"
+export VIRTUALENVWRAPPER_VIRTUALENV="$HOME/.local/bin/virtualenv"
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source $HOME/.local/bin/virtualenvwrapper.sh
+
+# other possibilities:
+# PROJECT_HOME=$HOME/py
+
+# May have problems finding virtualenvwrapper.sh:
+    $ find / -name virtualenvwrapper.sh
+# Debian 10: ~/.local/bin/
+# Possibly in /usr/local/bin/
+
+    $ mkdir ~/.virtualenvs
+    $ source ~/.bashrc
+
+    $ mkvirtualenv -p python3.7 p37  # --python="/usr/bin/python3" p3
+    $ workon p37
+    $ workon    # without a param: lists available venvs.
+
+    $ deactivate
+
+
+mkvirtualenv [-a project_path] [-i package] [-r requirements_file] [virtualenv options] ENVNAME
+The -a option can be used to associate an existing project directory with the new environment.
+
+The -i option can be used to install one or more packages (by repeating the option) after the environment is created.
+
+The -r option can be used to specify a text file listing packages to be installed. The argument value is passed to pip -r to be installed.
+
+
+To get python 3.8:
+https://tecadmin.net/install-python-3-8-ubuntu/
+See also sister file p38.
+

@@ -1,0 +1,23 @@
+This info is redacted in favour of Vundle and alvan/vim-closetag-
+see configure_vim & myvimrc.
+How to install python_matchit.vim? https://catonmat.net/vim-plugins-matchit-vim
+(Matchit.vim has been included in vim since version 6.0.
+Currently using version 8...)
+
+Python_matchit.vim is a filetype plugin. It has to be installed in "ftplugin" directory. Follow these steps to get it installed:
+
+    1. Download python_matchit.vim.
+    (http://www.vim.org/scripts/script.php?script_id=386)
+    2. Put it in ~/.vim/ftplugin (on Unix/Linux).
+    3. Restart Vim or source matchit.vim with ":so ~/.vim/ftplugin/python_matchit.vim".
+
+
+
+
+
+
+To enable auto-complete every time a HTML file is opened, add the following line to your ~/.vimrc;
+
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
+

@@ -1,0 +1,103 @@
+
+# add to .profile
+export VISUAL=vim
+export EDITOR=$VISUAL
+
+https://www.techrepublic.com/article/how-to-connect-a-linux-machine-to-google-cloud-print/
+sudo add-apt-repository ppa:simon-cadman/niftyrepo
+
+=============================================================================
+from Mats Wichmann (on python tutor)
+
+
+Then request your installations like this:
+$ python3 -m pip install bunch-o-stuff
+
+
+I have done it this way, assuming I don't want to replace the system
+Python. This is a completely optional framework, but I've found it
+useful.
+
+One time only:
+$ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+# set up environment variables for use by pyenv,
+# as noted in pyenv readme:
+$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+
+Any time I want to install a Python version:
+$ pyenv rehash
+$ pyenv install 3.7.0
+
+Inside a project that wants to use 3.7.0:
+$ pyenv local 3.7.0
+
+To see what is available to install:
+$ pyenv install list
+
+To simplify creating virtualenvs, there is a pyenv-virtualenv plugin
+described here:
+https://github.com/pyenv/pyenv-virtualenv
+
+
+===========================================================================
+RE: git and github.com:
+cp /media/alex/BIG0/N4backup/alex/.gitconfig ~/
+cp /media/alex/BIG0/N4backup/alex/.ssh/id* ~/.ssh
+
+
+DEBIAN
+initial firmware: https://www.linuxquestions.org/questions/debian-26/how-to-provide-non-free-firmware-files-to-the-debian-jessie-installer-4175542680/
+
+add contrib and non-free after main to each line in
+/etc/apt/sources.list
+
+apt install catalogues
+Er, I must hasten to clarify.  I'm not talking about a package called
+'catalogues'.  I'm talking about the roster of packages available in
+remote repos.  Doing 'apt-get update' fetches the various Packages[.gz]
+files from the remote repo directories, writes them into
+/var/cache/apt/lists, and then merges them to create the
+/var/lib/dpkg/available file.  This is the _catalogue_, the knowledge of
+what packages and what versions of packages are currently available at
+the remote repos you specified in /etc/apt/sources.list[.d/*] .
+
+http://ftp.us.debian.org/debian/pool/non-free/f/firmware-nonfree/firmware-iwlwifi_20161130-4_all.deb
+Download above, copy onto a usb stick
+Mount the stick on new debian and...
+dpkg -i /mnt/firmware-iwlwifi_20161130-4_all.deb
+
+Better still, use the non-free iso image:
+https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current/amd64/iso-cd/
+
+Still trying to get the interface(s) up:
+https://www.cyberciti.biz/faq/linux-ip-command-examples-usage-syntax/
+
+----------------------------------------------------------------------
+sudo apt install python3.7 python3.7-venv python3.7-doc binfmt-support
+mkvirtualenv -p python3.7 p37
+
+
+apt install curl
+
+
+-------------------------------------------------------------
+pip3 install virtualenvwrapper
+==>
+alex@one:~$ which virtualenvwrapper.sh
+/home/alex/.local/bin/virtualenvwrapper.sh
+alex@one:~$ ls -l .local/bin
+total 60
+-rwxr-xr-x 1 alex alex   215 Nov  4 11:37 pbr
+-rwxr-xr-x 1 alex alex   213 Nov  4 11:37 virtualenv
+-rwxr-xr-x 1 alex alex   218 Nov  4 11:37 virtualenv-clone
+-rwxr-xr-x 1 alex alex  2210 Nov  4 11:37 virtualenvwrapper_lazy.sh
+-rwxr-xr-x 1 alex alex 41703 Nov  4 11:37 virtualenvwrapper.sh
+alex@one:~$
+
+
+https://vsupalov.com/developing-with-python3-8-on-ubuntu-18-04/
+
+https://virtualenvwrapper.readthedocs.io/en/latest/
+
+

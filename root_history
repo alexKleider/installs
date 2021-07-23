@@ -1,0 +1,4 @@
+apt update
+apt upgrade
+apt -y install vim git git-doc vim-scripts openssh-server msmtp curl tree screen tofrodos flip inxi dnsutils ucommon-utils build-essential rsync
+ip -a address

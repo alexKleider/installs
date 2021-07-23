@@ -1,0 +1,7 @@
+
+Does not come with an image viewer- apt install geeqie
+- seems to provide imagemagic which isn't very satisfactory.
+
+..and it won't open a Canon Raw CRW file.
+  apt install digikam (digital photo management application for KDE)
+

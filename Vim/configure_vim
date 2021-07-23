@@ -1,0 +1,46 @@
+# File: configuring_vim
+
+Vim Tutorial
+https://www.linuxfordevices.com/tutorials/linux/vim-tutorial
+
+VimScript Tutorial
+https://linuxhint.com/vimrc_tutorial/
+
+Vundle  (Vim Bundle)
+https://www.linuxfordevices.com/tutorials/linux/vundle
+The following goes into .vimrc:
+"""
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize Vundle
+" The directory should be changed in case you download it somewhere else
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" All the plugins to be installed are to be mentioned here
+" inside the vundle#begin and vundle#end
+" To Install Plugin from a repository:
+" Plugin 'git://git.wincent.com/command-t.git'
+" or if from Github can simplify to
+" Plugin 'tpope/vim-fugitive'
+
+" When editing is completed, use following commands:
+" :source %
+" :PluginInstall
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+"""
+
+CloseTag
+https://github.com/alvan/vim-closetag
+Between :call vundle#begin() and :call vundle#end():
+Plugin 'alvan/vim-closetag'
+...and in .vimrc use "let g:" options to specify file types in which
+tags are to be closed or not. For example:
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+

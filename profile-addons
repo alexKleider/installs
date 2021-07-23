@@ -1,0 +1,18 @@
+
+export VISUAL=vim
+export EDITOR=$VISUAL
+export GIT_EDITOR=vim
+export jing="/usr/share/xml/docbook/schema/rng/5.0/docbook.rng"
+export debk="/home/alex/Py/CSV/debk/"
+export perci="/home/alex/Py/TDD/Percival/sl/"
+export backup="/home/alex/Py/BackUp/"
+export whichiswhich="/home/alex/olpcSF/Inventory/RPis/"
+export pathagar="/Pj/"
+export ph="/Py/pathagar/"
+export djbk="/home/alex/Py/DjBk/debk/"
+export rng="/usr/share/xml/docbook/schema/rng/5.0/docbook.rng" 
+
+### Added by the Heroku Toolbelt
+# export PATH="/usr/local/heroku/bin:$PATH"
+
+. "$HOME/bin/path.sh"  # Sets my PYTHONPATH

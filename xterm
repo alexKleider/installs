@@ -1,0 +1,8 @@
+add the following line to the ~/.Xresources file: 
+
+XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+
+You can test it with an xterm: 
+
+xterm -xrm 'XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)'
+
