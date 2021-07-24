@@ -1,0 +1,40 @@
+set autoindent
+set shiftwidth=4
+set expandtab
+set tabstop=4
+set softtabstop=4
+set textwidth=70
+set scrolljump=2
+set scrolloff=2
+
+" In insert mode, use ctrl+v to enter paste mode and insert the content
+" in your clipboard   ! from Aaron:
+imap <C-v> <Esc>:set paste<CR>"+P :set nopaste<CR>a
+
+" The following is to do with Vundle:   !!! VUNDLE  !!!
+" https://www.linuxfordevices.com/tutorials/linux/vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize Vundle
+" The directory should be changed in case you download it somewhere else
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()    " VundleBeginListing
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" All the plugins to be installed are to be mentioned here
+" inside the vundle#begin and vundle#end
+
+Plugin 'alvan/vim-closetag'
+
+call vundle#end()           " VundleEndListing
+filetype plugin indent on   " required
+" ...end of Vundle.                   !!! VundleEnd  !!
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+if has("autocmd")
+   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif

@@ -36,6 +36,13 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 """
 
+After plugins are added as described above (i.e. the closetag plug in
+described bellow) one must either
+1. open vim and issue command:
+:PluginInstall
+or 2. from command line:
+vim +PluginInstall +qall
+
 CloseTag
 https://github.com/alvan/vim-closetag
 Between :call vundle#begin() and :call vundle#end():
@@ -43,4 +50,5 @@ Plugin 'alvan/vim-closetag'
 ...and in .vimrc use "let g:" options to specify file types in which
 tags are to be closed or not. For example:
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
 
