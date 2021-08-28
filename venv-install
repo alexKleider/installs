@@ -1,4 +1,8 @@
+# File: venv-install
+
 https://medium.com/the-andela-way/configuring-python-environment-with-virtualenvwrapper-8745c2895745
+
+### REDACTED !!  in favour of 'virtualenvwrapper' 
 
 cd ~
 mkdir .virtualenvs
@@ -15,7 +19,9 @@ mkvirtualenv myenv
 
 If you created your project folder already, you could cd into the
 folder before running the mkvirtualenv command with some arguments
-to automatically navigate to the project folder whenever you activate the virtual environment. Here is the format: mkvirtualenv [-a project_path] [-i package] [-r requirements_file] [virtualenv options] [ENVNAME]
+to automatically navigate to the project folder whenever you activate
+the virtual environment. Here is the format:
+mkvirtualenv [-a project_path] [-i package] [-r requirements_file] [virtualenv options] [ENVNAME]
 
 mkvirtualenv -a $(pwd) createdenv
 
@@ -23,20 +29,36 @@ or
 
 mkvirtualenv -a $(pwd) python=python3 createdenv
 
-If you created your python environment first and made some module installations before creating your project folder and files e.g Django projects, no worries, you are not excluded in the goodies that come with automatically navigating to your project folder when you activate your virtualenv; Just run this command in the format- setvirtualenvproject [~/.virtualenvs/your-virtual-env/] [~/path/to/your/project]
-
+If you created your python environment first and made some module
+installations before creating your project folder and files e.g Django
+projects, no worries, you are not excluded in the goodies that come with
+automatically navigating to your project folder when you activate your
+virtualenv; Just run this command in the format-
+setvirtualenvproject [~/.virtualenvs/your-virtual-env/] [~/path/to/your/project]
 setvirtualenvproject ~/.virtualenvs/your-venv/ ~/path/to/project/rootdirectory
 
-Use the deactivate command to deactivate a virtual environment. Use the workon createdenv command to subsequently activate a virtual environment or just run workon to list all available virtual environments created. You can navigate to other created virtual environments while on a given environment without necessarily deactivating it first.
+Use the deactivate command to deactivate a virtual environment.
+Use the workon createdenv command to subsequently activate a virtual
+environment or just run workon to list all available virtual
+environments created. You can navigate to other created virtual
+environments while on a given environment without necessarily
+deactivating it first.
 
 workon createdenv
 workon
 
-You could use the rmvirtualenv ENVNAME to remove an installed virtual environment. Note that you must deactivate the virtual environment to be able to delete or remove it.
+You could use the rmvirtualenv ENVNAME to remove an installed virtual
+environment. Note that you must deactivate the virtual environment to
+be able to delete or remove it.
 
 rmvirtualenv createdenv
 
-There is this sweet command to copy an entire virtual environment to a newly created virtual environment. If you haven’t felt the need to do this, you certainly would someday. A typical scenario is when you need to observe the effect of meddling with specific modules in your current environment while preserving its original form. Here is the command to copy your virtualenv: cpvirtualenv [ENVNAME] [TARGETENVNAME]
+There is this sweet command to copy an entire virtual environment to a
+newly created virtual environment. If you haven’t felt the need to do
+this, you certainly would someday. A typical scenario is when you need
+to observe the effect of meddling with specific modules in your current
+environment while preserving its original form. Here is the command to
+copy your virtualenv: cpvirtualenv [ENVNAME] [TARGETENVNAME]
 
 cpvirtualenv createdenv copiedenv
 
