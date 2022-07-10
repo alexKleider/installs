@@ -1,0 +1,10 @@
+Vim Macros: 
+
+q <a letter naming the macro>
+{execute a bunch of stuff
+that gets recorded}
+q  #to quit recording.
+
+@<the letter you picked>
+executes the macro
+

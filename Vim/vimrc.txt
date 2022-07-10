@@ -1,0 +1,455 @@
+entries for .vimrc:
+set autoindent
+set shiftwidth=4
+set pastetoggle=<F12>
+set expandtab
+set scrolljump=2
+set scrolloff=2
+map ^T :w!<CR>:!aspell check %<CR>:e! %<CR>
+
+the last (map) option doesn't work, at least ^T -> an error
+
+# https://github.com/cdown/dotfiles
+
+
+
+You might want to add softtabstop as well.  
+  set softtabstop=4
+
+  It's very handy for allowing the delete key to go back TAB number of
+  spaces (ie, deletes those 4 spaces you just inserted).  
+
+  -- 
+  David Rock
+  david@graniteweb.com
+
+
+
+set autoindent
+set shiftwidth=4
+set expandtab
+set tabstop=4
+set softtabstop=4
+set textwidth=72
+set scrolljump=2
+set scrolloff=2
+set complete+=kspell
+set tags=./mytags
+set viminfo='10,\"100,:20,%,n~/.viminfo
+set pastetoggle=<F12>
+
+
+
+Cameron Simpson:
+
+
+-ro. In mutt (my mailer) an "Attach:"    header gets turned into a real
+attachment. So this macro runs a bit of    shell to issue the prompt
+"Attach: " and accept the filename you typ, _with    filename
+completion!_. And inserts that as an Attach: header. When I leave    the
+editor, mutt adds the file to the attachments for this message.
+
+ set bg=dark
+   My terminals have a dark background.
+
+ syntax reset
+ syntax on
+   I like my syntax highlighting.
+
+ set wildmenu wildmode=list:longest
+   Make vim's filename completion act more like zsh's, which I find far
+more    ergonomic than bash's. Essentially: complete as much as you can
+and    _immediately_ show me the remainder without an extra TAB
+keystroke.
+
+ set ignorecase
+ set smartcase
+   Case insensitive searches unless there is an uppercase letter in the
+search    string.
+
+ set incsearch
+   Show the first match in the file as you type the search regexp.
+
+ set backupcopy=yes
+   I prefer to overwrite the original file instead of making a new one
+and    cutting it in with rename(). The former edits the file I intended
+to edit.     The latter breaks hardlinks and has to do silly hoop
+jumping with symlinks.     Gah! Do what I say, not what you think I
+want!
+
+ set noswapfile
+ set swapsync=
+   Vim's fetish for .swp files drives me mad, especially if one loses
+remote    sessions regularly or terminal emulators die or one coworks
+with others in    the same directories or simply closes one's laptop one
+a whim or moves    around. I save files very regularly anyway, so I
+pretty much never lose a    significant edit.
+
+ set nofsync
+   Trust the filesystem, the filesystem is your friend. Once I've handed
+the    file to the OS (i.e. written it) I do not want to shout at the
+OS: not get    that onto the disc, now! Especially when fsync() means
+sync(0 on many    filesystems i.e. write _all_ pending disc I/O before
+returning, often with    a huge and visible hit to the system behaviour.
+
+ set scrolloff=2
+   Like you, keep some screen context.
+
+ set t_Co=256
+   Yes, my terminal have lots of colours.
+
+ set ttyfast
+   Better display instead of lower bandwidth display.
+
+ set spellfile=~/rc/vim/spellfile.utf-8.add
+   Additional words to augument the spelling table.
+
+ set spelllang=en_gb
+   British English.
+
+ set nospell
+   Spell checking off by default.
+
+ let g:loaded_netrw = 1
+   I forget. Anyone?
+
+ map <F3> :set hlsearch! nospell! <CR>
+   F3 turns off highlighting.
+
+and when composing email I use:
+
+ set formatoptions=wa
+   This supports writing format=flowed email text. See ":help fo-table".
+
+
+for all that I am usually actually
+using vim).  Things from vim I specificly value include syntax
+highlighting, UTF-8 support and filename completion (after I'd beaten it
+over the head as described).
+
+=========================================================
+
+Peter Downs:
+
+
+I like how you wrap the language specific settings in a function instead
+of having a bunch of separate autocmd lines like I do.
+
+I also map function keys to tools like linters and the interpreter:
+
+==8<==
+
+autocmd BufNewFile,BufRead *.py nnoremap <buffer> <F5> :w<cr>:exec
+'!clear; pylint' shellescape(@%, 1)<cr>
+autocmd BufNewFile,BufRead *.py nnoremap <buffer> <F6> :w<cr>:exec
+'!clear; pylama' shellescape(@%, 1)<cr>
+autocmd BufNewFile,BufRead *.py nnoremap <buffer> <F9> :w<cr>:exec
+'!clear; python3' shellescape(@%, 1)<cr>
+
+==8<==
+
+that way you can test the code or check the syntax without leaving vim
+or switching windows.
+
+==============================================================
+
+David Lowry-Duda:
+
+Welcome to the vim way! I also use vim as my primary python editor. I'll
+note that there has been a recent surge in power from language servers,
+and tools like vim-ale (https://github.com/dense-analysis/ale) or
+coc.nvim (https://github.com/neoclide/coc.nvim) [which I am led to
+believe works also for vim and not just neovim, but in fact I have not
+used it] might be very helpful. These enable various forms of
+autocompletion, definitions, signature help, mypy-type checking, and so
+on, from within vim.
+
+I suggest that you consider these and whether or not you think they
+would be helpful in your setup.
+
+And though it's actually quite old, I also recommend using some form of
+ctags for large projects, such as
+(https://github.com/universal-ctags/ctags). This facilitates quickly
+jumping to definitions, functions, and classes in a project.
+
+- DLD
+
+================================================================
+
+I've got quite a lot in my vi and vim settings, so I'll run through the
+things I've got which seem applicable to Python (and coding in general):
+
+First my "vi" settings (sourced by my vimrc):
+
+    set autoindent
+
+Great for almost all coding; remember that at the start of a line ^D
+(ctrl-D) steps you backwards one indent step when you need to
+out-indent. I've got some autoindenting syntax stuff turned on too, so
+often I instead write the next line, let the auto stuff mangle the
+intended indent, and adjust with "<<" to left shift the line.
+
+Oh, were you aware of the "<" and ">" keystrokes? Like many vim
+commands, followed by a cursor motion (or doubled to just affect the
+current line). So "<<" shifts the current line, "<}" shifts the lines
+from here the next empty line (great for shifting a whole code block),
+"20<<" shifts the next 20 lines including the current one, etc. It
+honours the "shiftwidth" setting below; mine is set to 2.
+
+Note that having autoformatting (see below) reduces the need for this,
+but it is still very useful - I use it a lot. Including to indent the
+settings listing for this message!
+
+    set autowrite
+
+Writes the file when I switch to another, so switching files is just ":n
+filename". I pretty much always use revision control, so I am not very
+hung up on unwanted changes - a diff will always show them to me.
+
+    set ignorecase
+
+Just makes searching easier all around. Note that a mixed case search
+has a degree of case sensitivity anyway, so when you care about the case
+you can be more precise.
+
+    " set nomesg
+    set nowrapscan
+
+I like to know when I've hit the last match instead of cycling to the
+top of the file - in a big file that isn't always obvious.
+
+    set showmatch
+
+Bounces the cursor to the matching bracket when you type a closing
+bracket, and also highlights the starting bracking. Quite ahndy.
+
+    set shiftwidth=2
+
+Doesn't everyone indent (and therefore shift) by 2 spaces?
+
+    " set tabstop=8
+    set tabstop=4
+
+Not too big, not too small. I use expandtabs, so I don't embed TABs in
+my code.
+
+    set noterse
+    set writeany
+
+Goes with autowrite.
+
+    map! \c cs@cskk.id.au
+    map! \C Cameron Simpson <\c>
+
+Handy for writing my email address.
+
+    " Markdown: `code` a word
+    map `` lbi` ea`
+
+I write MarkDown docstrings and like MarkDown in general for a lot of
+simple doco. This defines a `` macro to put backticks around the current
+word, very handy for embedding "computer names" in text.
+
+    map!     :stopa
+    map!    a
+    map!     i
+    map!     lli
+    map!     I
+
+Suspend (^Z) and some emacs-like cursor motions. The suspend is pretty
+ancient, I think that works transparently in vim these days. And I
+rarely suspend in a multiwindow/multitab/multipane environment.
+
+    map # :n #z.
+
+So handy. Switch between this file and the previous with a single
+keystroke.
+
+    map g Gz.
+
+I find typing an uppercase G to go to a line tiresome.
+
+    map t :ta
+
+"t" shorthand for :td (go to tag). I use tagfiles agressively, and they
+work well in Python. Note that ctags also makes tags for filenames, so
+finding a source file in a large hierarchy is also much easier. I've got
+a couple of shell scripts to make regenerating tags files easier too:
+
+    https://hg.sr.ht/~cameron-simpson/css/browse/bin/ctags-update
+
+and a shell function "uptags" to run it:
+
+    uptags () {
+         >> tags
+         ctags-update -o tags ${1+"$@"}
+         ls -ld tags
+     }
+
+Note in particular the ctags options I use at the bottom of
+"ctags-update".
+
+Then the vim settings:
+
+    source ~/rc/vi
+
+Of course.
+
+    set encoding=utf-8
+    scriptencoding utf-8
+
+This is the way.
+
+    set bg=dark
+    colorscheme cameron
+    syntax reset
+    syntax on
+
+Colours.
+
+    set autoread
+
+See and load the file if it is not modified and the original changes.
+This means I can have multiple vims watching the same file. I
+reflexively save quite often (and autosave above does it a lot too) so
+my buffers are usually unmodified.
+
+    set backupcopy=yes
+
+I write in place (hard link paranoia) so a backup is handy during
+rewrites.
+
+    set clipboard=autoselect
+
+Doesn't work as well as I've like.
+
+    set cursorline
+
+I find it useful to highlight the current line - I've usualy got at
+least 2 buffers visible so this aids not losing track.
+
+    set expandtab
+
+Of course. I sometimes like TABs to typing an indent, but not for the
+text itself, which should have spaces.
+
+    set fileformats=unix,mac,dos
+
+Just cope and don't mangle things.
+
+    set ignorecase
+    set incsearch
+
+Nicer searching.
+
+    set list
+    set listchars=tab:▸\ ,trail:_,extends:>,precedes:<,conceal:*
+
+Stuff I like visible in "list" mode.
+
+    set mouse=
+    set mousefocus=on
+    set mousehide
+    set mousemodel=extend
+
+What I've landed on for mouse integration. I found the other modes
+either annoying or not working seamlessly. In particular I like to
+GUI-level copy/paste with the mouse and mouse integration broke that
+just for the vim windows, so annoying.
+
+    set nofsync
+
+Overuse of fsync is just bad.
+
+    set scrolloff=2
+
+2 lines of text visible at the top/bottom of the screen WRT to the
+cursor line.
+
+    set smartcase
+
+I think this is the clever "mixed case searches are case senstivie"
+thing.
+
+    set t_Co=256
+
+I've got a 256 colour terminal emulator (IIRC).
+
+    set ttyfast
+
+An ancient setting I think.
+
+    set updatetime=2000
+
+Polling interval for external changes?
+
+    set wildignore+=*.swp,*.zip,*.exe,*.a,*.o,*.pyc
+    set wildmenu wildmode=list:longest
+
+Files to ignore when autocompleting filenames.
+
+    map <C-W><C-T> :split %<CR>
+    map <C-W><C-N> :new<CR>:n
+
+"vim window mode", so useful. I use ^W^T to do a horizontal split
+(matches with Cmd-Shift-T in iTerm to do that same with panes), ^W^V for
+a vertical split (atches with Cmd-Shift-V in iTerm). I've got similar
+bindings in tmux, too.
+
+    map ,f :silent !format %
+
+The big winner. Macro to autoformat this file using a code formatter.
+The "format" script is my own, here:
+
+    https://hg.sr.ht/~cameron-simpson/css/browse/bin-cs/format
+
+which runs my preferred formatter (language specific) on the file. See
+the script for details, write your own! Or adopt and adapt!
+
+    autocmd CursorHold * checktime | call feedkeys(" ")
+    autocmd FocusGained,BufEnter * :checktime
+
+These are tickers to drive the automatic detection of external changes.
+So useful!
+
+    " Remove ALL autocommands for the current group.
+    " autocmd!
+    autocmd BufWritePost *.go :silent !echo; format -t .autoformat %
+    autocmd BufWritePost *.php :silent !echo; format -t .autoformat %
+    autocmd BufWritePost *.js :silent !echo; format -t .autoformat %
+    autocmd BufWritePost *.py :silent !echo; format -t .autoformat %
+
+This automatically autoformats various file extensions on save, _if_ the
+source tree has a nonempty ".autoformat" file in it. So I go:
+
+    echo 1 >.autoformat
+
+in my code tree and off we go! There are trees where you don't want
+magic autoformatting, particularly existing codebases where you don't
+want autoformat noise in your commits.
+
+    let @t=system('tags=$(findup tags) || tags=tags; echo "set tags=$tags"')
+    @t
+
+Set the "tags" vi/vim setting if you've just made a fresh tags file.
+
+    autocmd BufWritePost * :let @t=system('vim-ctags-update ' . shellescape(@%))
+    autocmd BufWritePost * :@t
+    autocmd BufWritePost * :redraw!
+
+Update the tags when you save a file.
+
+    autocmd BufRead,BufNewFile haproxy* set ft=haproxy
+
+Recognise an addition file syntax based on filename.
+
+    if has("gui_macvim")
+      set macthinstrokes
+    endif
+
+Setting for GUI Vim on a Mac, I never use it.
+
+Cheers,
+Cameron Simpson <cs@cskk.id.au>
+================================================
+

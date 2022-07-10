@@ -4,3 +4,13 @@ file can be found in ~/Downloads:
 
 
 https://ostechnix.com/how-to-create-bootable-usb-drive-using-dd-command/
+
+As of Sat 09 Jul 2022 01:10:50 PM PDT
+https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/current-live/amd64/iso-hybrid/debian-live-11.3.0-amd64-xfce+nonfree.iso
+is being downloaded to this directory.
+It failed so ...
+Sun 10 Jul 2022 12:02:41 PM PDT downloaded:
+-rw-r--r-- 1 alex alex      495976448 Jul  9 05:03 firmware-11.4.0-amd64-netinst.iso
+    $ sha254sum checked out.
+Seems to be installing satisfactorily...
+

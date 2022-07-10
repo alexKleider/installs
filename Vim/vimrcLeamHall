@@ -1,0 +1,27 @@
+set shiftwidth=2  " mine is 4
+set shiftround    " ??
+set tabstop=4     " as is mine
+set softtabstop=4 " as is mine
+set noexpandtab   " opposite to mine
+set number        " mine is _not_set
+set ruler         " ??
+set noautoindent  " mine is set
+set nosmartindent " ??
+set noincsearch   " ??
+syntax enable     " mine is 'on' ('enable' ?==? 'on')
+
+
+au BufRead, BufNewFile *.py call SetPythonOptions()
+function SetPythonOptions()
+     autocmd!
+     set tabstop=4
+     set softtabstop=4
+     set shiftwidth=4
+     " use spaces instead of tab
+     set expandtab
+     set autoindent
+endfunction
+
+" remove trailing blanks in Python files
+au BufWritePre *.py %s/\s\+$//e
+

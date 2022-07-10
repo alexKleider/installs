@@ -1,0 +1,18 @@
+
+Deletions and Unnamed Buffers:
+The last 9 multi line deletions are saved in numbered buffers.
+They can be retrieved using:
+"np    where n is an integer, 1 = last, 2 = second last, etc.
+Can't remember? No problem:
+"1pu.u.u etc
+
+Named Buffers:
+Loading:
+Used with y or d, 26 named (a-z) buffers.
+"a[n]yy  Yank current or n lines into buffer (or use dd to delete)
+"ay'm  yank from cursor to mark m (or use y to yank vs delete)
+Retrieving:
+"cP  put buffer c before cursor
+"cp  put buffer c after cursor
+
+

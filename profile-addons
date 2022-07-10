@@ -16,3 +16,26 @@ export rng="/usr/share/xml/docbook/schema/rng/5.0/docbook.rng"
 # export PATH="/usr/local/heroku/bin:$PATH"
 
 . "$HOME/bin/path.sh"  # Sets my PYTHONPATH
+
+The following dates back to date specified:
+
+
+# What I add to customize my ~/.profile:
+# Last edited Nov 18, 2018!!
+
+export EDITOR=vim
+export jing="/usr/share/xml/docbook/schema/rng/5.0/docbook.rng"
+export work="/home/alex/Py/CSV/debk/"
+
+export rng="/usr/share/xml/docbook/schema/rng/5.0/docbook.rng" 
+
+### Added by the Heroku Toolbelt
+# export PATH="/usr/local/heroku/bin:$PATH"
+
+# the following depends on my ~/bin/path.sh script:
+# . "$HOME/bin/path.sh"  # Sets my PYTHONPATH
+
+source /home/alex/custom.sh
+
+shopt -s histverify
+

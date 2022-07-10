@@ -1,12 +1,13 @@
+Copy/Paste made to work using Vundle etc (see under Vim)
+(as of Sat 28 Aug 2021 03:40:57 PM PDT)
+
+The following seems something I tried in the past- probably no longer
+necessary:
+
 add the following line to the ~/.Xresources file: 
-
 XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
-
 You can test it with an xterm: 
-
 xterm -xrm 'XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)'
 
 
-PS  Copy/Paste made to work using Vundle etc (see under Vim)
-I don't know what this is for (as of Sat 28 Aug 2021 03:40:57 PM PDT)
 

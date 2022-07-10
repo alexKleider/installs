@@ -1,0 +1,16 @@
+Hit apostrophe then double-quote ('") when you enter VIM and it will jump
+you there.  You can add it to your vimrc to do it automatically too:
+http://stackoverflow.com/questions/774560/in-vim-how-do-i-get-a-file-to-open-at-the-same-line-number-i-closed-it-at-last
+ -sen
+
+ On Mon, October 8, 2012 08:22, Frantisek Apfelbeck wrote:
+ > Hi to all,
+ > I have a vim related question. I'm reading an e-book in vim (lovely
+ > green
+ > text on the black background) but I have a problem to remember where did
+ > I finished last when I want to continue reading. I know that I can make
+ > a
+ > kind of "mark word" and search for it but I wonder if I could somehow
+ > make vim start on the line where I finished (where the cursor was last).
+ > Do you think it is possible and if so how?
+

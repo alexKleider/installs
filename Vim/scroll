@@ -1,0 +1,37 @@
+Scroll:
+fwd/bwd  1 screen:      ^F      ^B
+fwd/bwd  1/2 scr:       ^D      ^U
+fwd/bwd  1 line:        ^E      ^Y
+
+current line to top:    z <--'
+current line center:    z.
+current line to bottom: z-
+
+Redraw screen:  ^L
+
+
+Cursor Mvnt:
+Home (top of screen):   H
+Middle of screen:       M
+Bottom of screen:       L
+
+1st char next line:     <--' or +
+1st char prev line:     -
+non blank begin line:   ^
+col n of current line:  n|
+end of word:            e      E ignores punctuation
+
+sentence: begin/end     (       )
+paragraph: begin/end    {       }
+section: begin/end      [[      ]]
+
+move to (just before) next/previous x:  [f|F]x  [t|T]x
+
+goto line n:            nG
+goto end of file:       G
+
+return to previous mark:        ``
+..to beginning of line containing previous mark:        ''
+
+show current location: ^G
+

@@ -1,0 +1,38 @@
+
+How to do it right:
+
+Step 1:  Shop around in stores or online, and make a list of printers
+you think are promising.
+
+Step 2:  Look up each such model at the http://openprinting.org/
+database.  Sadly, this is no longer Grant Taylor's project, but got
+taken over by the Borg -- er, by Linux Foundation.  So, among other
+Linux Foundation-related damage, that URL is now a redirect to
+wherever
+Linux Foundation stuffs it, this week.
+
+If you fumble around, you can eventually get somewhere useful, such as
+(after being redirected _back_):  http://www.openprinting.org/printers
+
+Step 3:  While examining Openprinting entries, look for printers that
+are said to work 'perfectly' on Linux as opposed to 'partially' or
+'paperweight' (not at all).  Look for at least 1GB of built-in RAM.
+Look for printers that do _not_ require you to download supplemental
+software or 'drivers' from the hardware manufacturer's Web site, as
+those will almost always be buggy, brittle proprietary crud (if it
+were
+otherwise, why wouldn't they have been merged into foomatic, etc.?).
+Look for native support for PostScript and/or PCL6.  And, last, look
+for the printer to include a network port, which is a marker for it
+probably not being cheap junk.
+
+Brother International doesn't have, by any means, a monopoly on
+suitable
+models -- but does make them.
+
+
+How to do it wrong:
+
+Step 1:  Buy the printer, and intend to figure out Linux support
+later.
+

@@ -1,0 +1,48 @@
+Run in Bolinas:
+alex@x301:~$ lpinfo -v
+network https
+network lpd
+network ipps
+network ipp14
+network beh
+network http
+network socket
+network ipp
+network dnssd://Photosmart%20D110%20series%20%5BE0AE1B%5D._ipp._tcp.local/
+network
+dnssd://Photosmart%20D110%20series%20%5BE0AE1B%5D._pdl-datastream._tcp.local/
+network
+dnssd://Xerox%20Phaser%206180N%20(9d%3Adf%3A72)._pdl-datastream._tcp.local/
+network
+dnssd://Xerox%20Phaser%206180N%20(9d%3Adf%3A72)._printer._tcp.local/
+network smb
+direct parallel:/dev/lp0
+network socket://10.0.0.190
+alex@x301:~$ 
+
+
+
+Run in DockTown:
+
+
+
+
+Run in the Loft:
+
+
+in Bolinas 
+Mon Nov 27 20:45:26 PST 2017
+network beh
+network socket
+network ipp
+network ipps
+network https
+serial serial:/dev/ttyS4?baud=115200
+serial serial:/dev/ttyUSB0?baud=230400
+network lpd
+network http
+network ipp14
+direct hp
+direct hpfax
+network dnssd://Xerox%20WorkCentre%206505N%20(14%3A18%3A6C)._pdl-datastream._tcp.local/
+network socket://10.0.0.192

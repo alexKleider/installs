@@ -1,0 +1,8 @@
+From some time back:
+/home/alex/.virtualenvs/p10/bin:/home/alex/.pyenv/plugins/pyenv-virtualenvwrapper/shims:/home/alex/.pyenv/libexec:/home/alex/.pyenv/plugins/python-build/bin:/home/alex/.pyenv/plugins/pyenv-virtualenvwrapper/bin:/home/alex/.pyenv/plugins/pyenv-virtualenv/bin:/home/alex/.pyenv/plugins/pyenv-update/bin:/home/alex/.pyenv/plugins/pyenv-installer/bin:/home/alex/.pyenv/plugins/pyenv-doctor/bin:/home/alex/.pyenv/plugins/pyenv-virtualenv/shims:/home/alex/.pyenv/shims:/home/alex/.pyenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
+As of Mon 30 May 2022 05:54:41 PM PDT:
+/home/alex/.virtualenvs/p9/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
+As of Sun 10 Jul 2022 04:31:48 PM PDT  (added ~/.local/bin)
+/home/alex/.virtualenvs/p9/bin:/home/alex/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games

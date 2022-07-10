@@ -1,0 +1,23 @@
+May find that lpr doesn't work but lp does!!
+
+Must 
+apt install cups
+then may have to reboot
+http://localhost:631
+Xerox_WorkCentre_6505N driver is in this directory.
+
+Old info:
+
+Name: Xerox_Phaser_3250
+Description: Xerox Xerox Phaser 3250
+Location: indi303
+Connection: socket://10.0.0.192
+Xerox Phaser 3250DN PS
+
+Name: hpprinter
+Description: hp laser printer
+Location: docktown
+Connection: socket://10.0.0.191
+HP LaserJet 4100 Series v.3010.107 Postscript
+
+Canon MF632C/634C

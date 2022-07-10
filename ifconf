@@ -1,7 +1,0 @@
-enp0s25   Link encap:Ethernet  HWaddr 00:22:68:0c:68:f9  
-lo        Link encap:Local Loopback  
-          inet addr:127.0.0.1  Mask:255.0.0.0
-          inet6 addr: ::1/128 Scope:Host
-wls1      Link encap:Ethernet  HWaddr 00:1e:65:c6:1a:06  
-          inet addr:10.0.0.13  Bcast:10.0.0.255  Mask:255.255.255.0
-

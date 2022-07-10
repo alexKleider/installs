@@ -1,14 +1,17 @@
 set autoindent
-set shiftwidth=4
-set expandtab
-set tabstop=4
-set softtabstop=4
+set shiftwidth=4  " number of spaces line is moved by << or >>
+set expandtab     " change tab to requred number of spaces
+set tabstop=4     " width of tab
+set softtabstop=4 " columns of whitespace removed by backspace
 set textwidth=70
 set scrolljump=2
-set scrolloff=2
+set scrolloff=2   " Keep at least n lines above/below cursor
+" set mousehide     " Hide the mouse when typing
+" set number        " Set line numbering
+syntax on
 
-" In insert mode, use ctrl+v to enter paste mode and insert the content
-" in your clipboard   ! from Aaron:
+" In insert mode, use ctrl+v to insert your system's clipboard content
+" (Paste mode)   ! from Aaron:
 imap <C-v> <Esc>:set paste<CR>"+P :set nopaste<CR>a
 
 " The following is to do with Vundle:   !!! VUNDLE  !!!
@@ -35,6 +38,7 @@ filetype plugin indent on   " required
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
+" Don't know where the following came from or what it does:
 if has("autocmd")
    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif

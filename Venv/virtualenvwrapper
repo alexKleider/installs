@@ -1,0 +1,63 @@
+Have a look at pyenv 1st- this file might be redacted in its favour.
+The above caused problems; advise against it.
+
+First do a Debian live USB install.
+
+https://medium.com/@gitudaniel/installing-virtualenvwrapper-for-python3-ad3dfea7c717
+
+    # apt install python3-pip
+    $ python3 -m pip install --user virtualenvwrapper
+
+Note: listing of ~/.local/bin now yields:
+-rwxr-xr-x 1 alex alex   211 May 13 14:24 pbr
+-rwxr-xr-x 1 alex alex   238 May 13 14:24 virtualenv
+-rwxr-xr-x 1 alex alex   214 May 13 14:24 virtualenv-clone
+-rwxr-xr-x 1 alex alex  2210 May 13 14:24 virtualenvwrapper_lazy.sh
+-rwxr-xr-x 1 alex alex 41703 May 13 14:24 virtualenvwrapper.sh
+
+Edit ~/.bashrc
+export WORKON_HOME="$HOME/.virtualenvs"
+export VIRTUALENVWRAPPER_VIRTUALENV="$HOME/.local/bin/virtualenv"
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source $HOME/.local/bin/virtualenvwrapper.sh
+
+# other possibilities:
+# PROJECT_HOME=$HOME/py
+
+# May have problems finding virtualenvwrapper.sh:
+    $ find / -name virtualenvwrapper.sh
+# Debian 10: ~/.local/bin/
+# Possibly in /usr/local/bin/
+
+No need to mkdir ~/.virtualenvs (it's already there!)
+    $ source ~/.bashrc
+
+    $ mkvirtualenv -p python3.9 p9  # --python="/usr/bin/python3" p3
+$ /home/alex/.virtualenvs/p9/bin/python3 -m pip install --upgrade pip
+$ /home/alex/.virtualenvs/p9/bin/python3 -m pip install docopt
+    $ workon p37 $ workon    # without a param: lists available venvs.
+
+## when using pip, use the following format:
+    $ python3 -m pip install --user ....
+## where "...." can be "docopt"
+
+    $ deactivate
+
+
+mkvirtualenv [-a project_path] [-i package] [-r requirements_file] [virtualenv options] ENVNAME
+
+The -a option can be used to associate an existing project directory
+with the new environment.
+
+The -i option can be used to install one or more packages (by repeating
+the option) after the environment is created.
+
+The -r option can be used to specify a text file listing packages to
+be installed. The argument value is passed to pip -r to be installed.
+
+
+To get python 3.8:
+https://tecadmin.net/install-python-3-8-ubuntu/
+See also sister file p38.
+Whole thing might be pre-empted by content of pyenv
+

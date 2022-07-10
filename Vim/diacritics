@@ -1,0 +1,34 @@
+diacritics or diacritical marks: special marks such as umlaut, accents aigus,
+and grave. 
+
+digraph: two letter combination such as "ph" in paragraph.
+
+Vim uses the notion of "two-letter" combinations to describe its input
+mechanism for characters with special characteristics such as diacritics.
+[see: /usr/share/vim/vim72/doc/digraph.txt 
+&/or :help digraph ]
+
+^K x
+use - to get 
+c,    cedilla (ç)
+e^    circumflex (ê)
+e>    (ê)
+e'    aigus (é)
+a!    grave (à)
+a:    (ä)
+?I    inverted question mark (¿)
+ss    German sharp S (ß)
+
+
+Greek: p* for pi (π)
+Russian: p= for "pe" (п)   # Sometimes need "%" instead of "=".
+
+Also can use Vim's second method: set the digraph option:
+:set digraph
+..following which you can enter the two characters separated by
+backspace instead of preceeded by ^K
+p.287  Robbins et al
+
+
+http://vimdoc.sourceforge.net/htmldoc/digraph.html#digraph-table
+

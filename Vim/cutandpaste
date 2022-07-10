@@ -1,0 +1,53 @@
+from Alan:
+If I use console vim I use the regular X cut n paste
+using the middle mouse button. There are vim tools for
+doing it, including accessing multiple clipboards etc,
+but I never use those.
+
+from Bob Stepp:
+
+>Do you have a system clipboard setup?  I had to get xsel going to use it with
+>Neovim.
+>
+>Once you have a recognized (by Vim/Neovim) system clipboard configured, then
+>you use the appropriate register(s).  In Vim/Neovim type ":h registers", which
+>will describe them.  For instance if I have copied something to the system
+>clipboard with the mouse and I am back in Vim/Neovim in insert mode I type
+>"Ctrl-r, +" to paste it in.  If you are in normal mode you would use either
+>"p" or "P" as you would with one of the alphabetic registers, but instead
+>substitute "+".
+>"""
+>Thanks for your attempt to help, Bob, but I must confess to not understanding!
+>I don't know of xsel or of Neovim...
+
+xsel is one of a few *nix programs for interacting with the X server clipboard
+selections.  It has nothing to do with the Vim/Neovim editors other than they
+can make use of them.  You can Google for xsel or use your man pages for more
+info.  Neovim is just a fork of Vim that so far retains compatibility with
+Vim, so for most purposes Vim and Neovim are interchangeable.
+
+>  ...I do have copy and paste working using just
+>leftclick+C(opy or leftclick+Paste and am happy with that.
+>I assume (but am not certain and for sure don't understand what the line is
+>really doing) that the following line:
+>" imap <C-v> <Esc>:set paste<CR>"+P :set nopaste<CR>a"
+>in my .vimrc is providing me that functionality .
+>Having said that, I did copy some of this text into the system clipboard and
+>then while in insert mode in vim, "Ctrl-r, +" did accomplish a paste (the same
+>as if I'd done 'leftclick, p'! )  That's good to know.
+
+If this worked than you can forget about xsel.  Sounds like you did not have
+to worry about the issues I originally had.
+
+>How do you 'copy' a highlighted segment from vim into your system clipboard?
+
+Just yank the selection into the "+" register just like you would yank text
+into a lettered register.
+
+Hope I'm clearer this time.  Must go to work!
+
+BTW, you might want to Google or manpage xsel or whatever your system uses.  X
+Server/X Windows has THREE selections it deals with: Primary, Secondary and
+Clipboard.  It is useful to know the differences for both your mouse
+functionality and using Vim and whatnot.
+

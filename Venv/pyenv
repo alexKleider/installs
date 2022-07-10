@@ -1,0 +1,61 @@
+https://dev.to/mhf/managing-multiple-versions-of-python-using-pyenv-and-virtualenvwrapper-383h
+## !! Advise against trying this. I had problems as of
+Fri 13 May 2022 03:06:25 PM PDT
+
+# apt update
+# apt install aria2 build-essential curl git libbz2-dev libffi-dev liblzma-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev llvm make tk-dev wget xz-utils zlib1g-dev
+
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+vim .bashrc:
+#### pyenv config
+if [ -f "$HOME/.pyenv/bin/pyenv" ] && ! type -P pyenv &>/dev/null ; then
+  export PYTHON_CONFIGURE_OPTS="--enable-shared"
+  export CFLAGS="-O2"
+  export PYTHON_BUILD_ARIA2_OPTS="-x 10 -k 1M"
+  export PYENV_ROOT="${HOME}/.pyenv"
+  export PATH="${PYENV_ROOT}/bin:${PATH}"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+  if [[ ! "$(pyenv which python)" == "/usr/bin/python" ]] ; then
+    pyenv virtualenvwrapper_lazy;
+  fi
+fi
+####
+
+Close and reopen terminal
+
+pyenv install -l  #to view versions available for pyenv download
+pyenv versions  # to view currently available and active on system
+pyenv install <version>  # Eg:- pyenv install 3.10.0
+pyenv global 3.10.0  # recommend activating all installed versions
+    # first version listed will be the default
+# Download virtual env tools for each version:
+python3.10 -m pip install virtualenv virtualenvwrapper
+# to create a virtual env with default Python:
+mkvirtualenv mydefaultenv
+# to specify which python:
+mkvirtualenf -p python3.10 myp10env
+#Mark the current directory as the virtualenv-linked Project
+#Directory to automatically go to the Project Directory when activating it.
+mkvirtualenv -p python3.10 -a $(pwd) myenv2
+deactivate
+workon <myenv>
+
+(p10) alex@X1:~/Git/Club/Utils$ python -m pip install docopt
+Collecting docopt
+  Using cached docopt-0.6.2.tar.gz (25 kB)
+Building wheels for collected packages: docopt
+  Building wheel for docopt (setup.py) ... done
+  Created wheel for docopt: filename=docopt-0.6.2-py2.py3-none-any.whl size=13704 sha256=6d73cb5a61de17a45afff8f3cd2bfeef89d34316fa204009551694404df88469
+  Stored in directory: /home/alex/.cache/pip/wheels/fc/ab/d4/5da2067ac95b36618c629a5f93f809425700506f72c9732fac
+Successfully built docopt
+Installing collected packages: docopt
+Successfully installed docopt-0.6.2
+WARNING: You are using pip version 20.1; however, version 21.3.1 is available.
+You should consider upgrading via the '/home/alex/.virtualenvs/p10/bin/python -m pip install --upgrade pip' command.
+(p10) alex@X1:~/Git/Club/Utils$ /home/alex/.virtualenvs/p10/bin/python -m pip install --upgrade pip
+

@@ -1,0 +1,21 @@
+When running the following command:
+
+$ pip3 install --user virtualenvwrapper
+
+... got the following warning:
+
+  The script pbr is installed in '/home/glu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  The script virtualenv-clone is installed in '/home/glu/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+
+True: ~/.local/bin/pbr does exist and is not in $PATH but all seems to
+work inspite of this.
+
+$ echo $PATH >> 
+/home/alex/.virtualenvs/p10/bin:/home/alex/.pyenv/plugins/pyenv-virtualenvwrapper/shims:/home/alex/.pyenv/libexec:/home/alex/.pyenv/plugins/python-build/bin:/home/alex/.pyenv/plugins/pyenv-virtualenvwrapper/bin:/home/alex/.pyenv/plugins/pyenv-virtualenv/bin:/home/alex/.pyenv/plugins/pyenv-update/bin:/home/alex/.pyenv/plugins/pyenv-installer/bin:/home/alex/.pyenv/plugins/pyenv-doctor/bin:/home/alex/.pyenv/plugins/pyenv-virtualenv/shims:/home/alex/.pyenv/shims:/home/alex/.pyenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
+... which does NOT include ~/.local/bin but all seems to work ok
+anyway so perhaps there's no need to heed this warning.
+
+

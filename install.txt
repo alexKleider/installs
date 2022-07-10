@@ -12,6 +12,20 @@ from Mats Wichmann (on python tutor)
 
 Then request your installations like this:
 $ python3 -m pip install bunch-o-stuff
+### Linux users using the system Python without creating a virtual
+### environment first should replace the python command in this
+### tutorial with python3 and the python -m pip command with
+### python3 -m pip --user.
+"""
+To install packages that are isolated to the current user,
+use the --user flag:
+python3 -m pip install --user SomeProject
+On Linux and macOS you can find the user base binary directory by
+running python -m site --user-base and adding bin to the end. For
+example, this will typically print ~/.local (with ~ expanded to the
+absolute path to your home directory) so you’ll need to add ~/.local/bin
+to your PATH. You can set your PATH permanently by modifying ~/.profile.
+"""
 
 
 I have done it this way, assuming I don't want to replace the system

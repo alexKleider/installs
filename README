@@ -1,0 +1,123 @@
+# File: ~/Notes/Installs/README
+
+My notes to help with the transition of moving to or setting up new
+hardware.  The following files could be of help:
+0u.sh
+1R.sh
+2u.sh
+rsync2Mnt.sh
+rsync2notes.sh
+
+New version of Debian (11.3 Bull Dog xfce with non-free components)
+available here:
+https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.3.0-live+nonfree/amd64/iso-hybrid/debian-live-11.3.0-amd64-xfce+nonfree.iso
+
+Before doing anything, be sure that ~/Notes/Installs on currently
+used/working device is up to date (with regard to this README file,
+files (ending in .sh,) dot files (.vimrc, .bashrc, etc) and any
+other relevant files and any required drivers.)
+
+Mount the 'install' thumb drive onto ~/Mnt
+# mount /dev/sdb1 ~/Mnt
+and copy the ~/Notes/Installs directory (and all it's contents (except
+the git repo)) over to it:
+$ source rsync2Mnt.sh   #  excludes the git repo from the transfer 
+
+For security reasons many of the ("top secret") dot files (if they are
+needed) would be best copied the last minute directly onto the thumb
+drive and then deleted when done.
+
+Unmount the now up to date 'install' thumb drive.
+# umount /dev/sdb1
+
+Boot up the 'new' device with the (Debian XFCE) installation imaged
+thumb drive inserted (pressing F12 to change the boot order.)
+Upon completion of the OS installation:
+
+Have 'user' do the following:  $ source 0u.sh
+$ mkdir Mnt
+$ mkdir Notes
+
+Then insert the carry over data thumb drive (also confusingly being
+referred to as "install"!) and have Root Mount and copy it:
+$ su - # to become root
+# user=<user_name_of_primary_user>
+# source 1R.sh  ## which does the following:
+    # mnt /dev/sdb1 /home/<user>/Mnt
+    # cp -pr /home/<user>/Mnt/* /home/<user>/Notes/
+    (The cp can be done later by the user (possibly by sourcing the 
+    rsync2notes.sh file) if you wish but if done now it eliminates the
+    need to keep the thumb drive connected.)
+    # umount /dev/sdb1  # and now the thumb drive can be removed.
+    mkdir /usr/share/unicode
+    cd /usr/share/unicode
+
+    # apt update && upgrade
+
+    # apt install vim vim-doc vim-scripts git git-doc openssh-server \
+        msmtp tree arp-scan tofrodos dnsutils tree build-essential \
+        wget unicode mutt virtualenv python3-pip pylint acpi cups lpr
+
+    # wget http://www.unicode.org/Public/UNIDATA/UnicodeData.txt
+
+
+$ 2u.sh  ## does the following:
+    $ pip3 install --user virtualenvwrapper
+    $ mkdir ~/.vim
+    $ cd ~/.vim
+    $ git clone https://github.com/VundleVim/Vundle.vim.git\
+            ~/.vim/bundle/Vundle.vim
+    $ cd bundle
+    $ git clone https://github.com/alvan/vim-closetag
+    $ cp ~/Notes/Installs/Vim/vimrc  ~/.vimrc
+
+
+    $ cp ~/Notes/Installs/bashrc ~/.bashrc
+    $ cd
+
+Now use scp to copy what ever 'sensitive' files that will be needed:
+$ scp -vrp alex@10.0.0.??:.ssh ./
+$ scp -vrp alex@10.0.0.??:.gnupg ./
++/- any of the following:
+.aspell.en.prepl
+.aspell.en.pws
+.bash_history
+.bash_logout
+.bashrc
+.config
+.dmrc
+.gitconfig
+.gnupg
+.grip
+.ICEauthority
+.lesshst
+.local
+.msmtp.log
+.msmtprc
+.mutt
+.muttakg
+.muttalias
+.muttclubg
+.mutteasy
+.muttsonic
+.openshot_qt
+.profile
+.pw.akg
+.pw.clubg
+.pw.easy
+.pw.sonic
+.pyenv
+.python_history
+.ssh
+.vim
+.viminfo
+.vimrc
+.zoom
+
+Use browser to set up printer: Xerox_WorkCentre_6505N.ppd
+NOTE: lpr seems not to work but lp does.
+
+
+Some scripts to do the above:
+
+1r.sh  # root

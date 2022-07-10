@@ -1,3 +1,6 @@
+# This file is now redundant; see the README file instead.
+#
+#
 # commands after doing an lubutu install long ago.
 sudo apt update
 sudo apt upgrade

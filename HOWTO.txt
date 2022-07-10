@@ -1,0 +1,96 @@
+# File: HOWTO.txt  (used to be newInstalls.txt)
+# May?? supersede the README
+
+# need root privileges to do the following:
+apt update # done Fri 13 May 2022 11:12:24 AM PDT
+apt upgrade  # done Fri 13 May 2022 11:18:56 AM PDT
+## took until Fri 13 May 2022 12:33:40 PM PDT (a bit over 1hr.)
+
+apt install rsync vim vim-doc vim-scripts git git-doc openssh-server \
+    msmtp tree arp-scan tofrodos dnsutils tree build-essential \
+    wget unicode mutt python3-pip pylint acpi cups lpr
+# also consider adding sqlite3 & sqlite3-doc to the above
+# don't need virtualenv - not sure but may => problems if included!
+# cups-client comes in automatically with cups
+# Can't get lpr command to work inspite of a reboot or the following:
+# $ alex@t460:~$ sudo adduser alex lpadmin
+# >> The user `alex' is already a member of `lpadmin'.
+# ...but the 'lp' command works & does pretty much the same:
+#     i.e. options such as -n <number> and -o orientation-requested=4
+# done Fri 13 May 2022 01:25:14 PM PDT
+
+# Could it be that installing unicode takes care of the following????....
+mkdir /usr/share/unicode
+cd /usr/share/unicode
+wget http://www.unicode.org/Public/UNIDATA/UnicodeData.txt
+# Without doing the above commands, /usr/share/unicode directory is
+# already there with _lots_ of content!!!
+
+# Bring in dot files:
+# see File: dotfiles2move 
+# Done Fri 13 May 2022 01:39:43 PM PDT
+# those with asterix (#*) should be backed up first?
+# i.e. cp .bashrc .bashrc-original
+
+.bashrc  #*
+.gnupg   #*
+.msmtprc  #*?  # not brought in by insalling msmtp??
+.mutt     #*?  # not brought in by insalling mutt??
+.muttalias   # listing of my contacts and their emails
+.muttakg     #}   mutt configuration
+.muttclubg   #}   for each of
+.mutteasy    #}   several 
+.muttsonic   #}   'mta's
+.pw.akg      #}   passwords
+.pw.clubg    #}   for each of
+.pw.easy     #}   several
+.pw.sonic    #}   'mta's
+.ssh
+.gitconfig
+.vimrc
+.vim  # see below:
+# For .vim [1]  perhaps use the following:
+# rsync -a --delete --exclude='.git' .vim ~/
+# to get .vim/bundle # without the .git files
+# (but still get .gitignore!)
+### The above done as of Fri 13 May 2022 02:03:28 PM PDT
+
+# To clone from github.com, be sure .ssh has been moved over,
+# cd into ~/Git/Club (or where-ever) and issue the following:
+git clone git@github.com:alexKleider/Club_Utilities.git ./Utils
+# The "./Utils" at the end causes "Club_Utilities.git" to be cloned
+# into a ./Utils directory rather than ./Club_Utilities.
+# Note: the git url needed can be found by going to the github 
+# repository and clicking on the green [code] box.
+
+# no need for root privileges for the following:
+python3 -m pip install --user virtualenvwrapper
+# the above worked Fri 13 May 2022 02:26:21 PM PDT
+
+# Remember that I have a number of files shared by various code bases
+# and in each code base they are a hard link so all are the same.
+# As of time of writing there are the following:
+# 1. helpers.py  x3   # $CLUBU/helpers.py, $LIB/code/helpers.py, 3rd??
+# 2. send.py  x2  # $CLUBU/PyMail/send.py  $LIB/code/send.py
+# 3. <I think there is a third- haven't found it yet!>
+# ... so after a re-install these links must be re-established
+
+
+#Note: Debian11 ships with python 3.9.2; no python 2 is included!
+$ mkvirtualenv -p python3 p9  # --python="/usr/bin/python3" p9
+## More info in the 'Venv/virtualenvwrapper' file.
+$ /home/alex/.virtualenvs/p9/bin/python3 -m pip install --upgrade pip
+$ /home/alex/.virtualenvs/p9/bin/python3 -m pip install docopt
+
+
+
+NOTE:
+
+[1] the long way to bring in what's needed in the ~/.vim directory:
+mkdir ~/.vim
+cd ~/.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+cd bundle
+git clone https://github.com/alvan/vim-closetag
+cd
+

@@ -1,0 +1,7 @@
+By the way, if you need to insert a control character while in
+append/insert mode, hit control-v first. For example, to insert control-g
+into the file being edited, type control-v then control-g. 
+A useful example is to use ^V ^L to insert a form feed into a text file
+to make it more printer friendly.
+
+
