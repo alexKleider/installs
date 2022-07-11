@@ -1,6 +1,13 @@
 # File: HOWTO.txt  (used to be newInstalls.txt)
 # May?? supersede the README
 
+Maintanance
+===========
+Any change in any of the ~/. ('Dott') files should be followed
+by updating the dotfiles.tar.gz.gpg file and pushing to git.[1]
+
+
+
 # need root privileges to do the following:
 apt update # done Fri 13 May 2022 11:12:24 AM PDT
 apt upgrade  # done Fri 13 May 2022 11:18:56 AM PDT
@@ -9,6 +16,7 @@ apt upgrade  # done Fri 13 May 2022 11:18:56 AM PDT
 apt install rsync vim vim-doc vim-scripts git git-doc openssh-server \
     msmtp tree arp-scan tofrodos dnsutils tree build-essential \
     wget unicode mutt python3-pip pylint acpi cups lpr
+
 # also consider adding sqlite3 & sqlite3-doc to the above
 # don't need virtualenv - not sure but may => problems if included!
 # cups-client comes in automatically with cups
@@ -49,7 +57,7 @@ wget http://www.unicode.org/Public/UNIDATA/UnicodeData.txt
 .gitconfig
 .vimrc
 .vim  # see below:
-# For .vim [1]  perhaps use the following:
+# For .vim [2]  perhaps use the following:
 # rsync -a --delete --exclude='.git' .vim ~/
 # to get .vim/bundle # without the .git files
 # (but still get .gitignore!)
@@ -84,13 +92,18 @@ $ /home/alex/.virtualenvs/p9/bin/python3 -m pip install docopt
 
 
 
-NOTE:
+FOOT NOTES:
 
-[1] the long way to bring in what's needed in the ~/.vim directory:
+[1]
+We want the dot files moved over but we don't want them in the public
+domaine so we keep them 'tar'ed and encrypted in the Dotfiles 
+directory so they come in encrypted along with the decrypt.sh script
+so they can be decrypted and then un'tar'ed into /home/user.
+
+[2] the long way to bring in what's needed in the ~/.vim directory:
 mkdir ~/.vim
 cd ~/.vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd bundle
 git clone https://github.com/alvan/vim-closetag
 cd
-

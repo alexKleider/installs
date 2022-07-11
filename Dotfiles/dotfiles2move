@@ -24,8 +24,10 @@
 # for the following perhaps use
 # .... rsync -a --delete --exclude='.git' olddir/.vim $home/
 
-.vim/bundle # without the .git files
+.vim
+# check that .vim/bundle is without the .git files
 
 .vimrc
+
 
 
