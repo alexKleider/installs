@@ -6,7 +6,8 @@
 .gitconfig
 .gnupg
 
-Rename .msmtprc => .msmtprc.original
+# Rename .msmtprc => .msmtprc.original
+# NOTE: the above is not created so no need!
 .msmtprc
 .mutt
 .muttakg
