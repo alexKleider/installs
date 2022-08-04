@@ -24,6 +24,7 @@ sudo apt install iproute2
 # sudo apt-get install libreoffice
 # openoffice not installed on 18.04
 
+apt install ncal  # to bring in cal command
 apt install cups lpr
 apt install wodim cdrkit-doc
 apt-get -y install vim git git-doc vim-doc vim-scripts openssh-server msmtp

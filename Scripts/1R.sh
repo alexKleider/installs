@@ -17,7 +17,7 @@ apt update && upgrade
 
 apt install rsync vim vim-doc vim-scripts git git-doc openssh-server \
     msmtp tree arp-scan tofrodos dnsutils tree build-essential \
-    unicode mutt virtualenv python3-pip pylint acpi cups lpr
+    unicode mutt virtualenv python3-pip pylint acpi cups lpr ncal
 
 mkdir /usr/share/unicode
 cd /usr/share/unicode
