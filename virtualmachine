@@ -1,0 +1,56 @@
+
+    virtual machine program like VirtualBox, VMware Player, or KVM
+
+    To integrate the Windows applications with your desktop, you can use VirtualBox’s seamless mode or VMware’s Unity mode. The applications will still be running in a virtual machine, but their windows will appear seamlessly on your desktop, as if they were running on Linux.
+
+    Use a Remote Desktop
+
+If you have access to a remote Windows system, you may want to try running your applications on the remote Windows system and using remote desktop on your Linux system to access them. The applications will be running remotely on a real Windows system, so they should work properly.
+
+Many Linux desktops include software for accessing remote Windows desktops already. If not, you can install the rdesktop package.
+
+    VirtualBox has a graphical user interface (GUI) and a command line interface (CLI) called VBoxManage. The CLI allows you to manage your virtual machines through the host command line, giving you a wider array of features.
+
+https://phoenixnap.com/kb/virtualbox-vs-vmware
+
+https://www.virtualbox.org/wiki/Linux_Downloads
+ Add the following line to your /etc/apt/sources.list. For Debian 11 and older, replace '<mydist>' with 'bullseye', 'buster', or 'stretch'. For Ubuntu 22.04 and older, 'replace '<mydist>' with 'jammy', 'eoan', 'bionic', 'xenial',
+
+deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian <mydist> contrib
+
+The Oracle public key for verifying the signatures can be downloaded here. You can add these keys with
+
+sudo gpg --dearmor oracle_vbox_2016.asc --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg
+
+or combine downloading and registering:
+
+wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg
+
+The key fingerprint for oracle_vbox_2016.asc is
+
+B9F8 D658 297A F3EF C18D  5CDF A2F6 83C5 2980 AECF
+Oracle Corporation (VirtualBox archive signing key) <info@virtualbox.org>
+
+To install VirtualBox, do
+
+sudo apt-get update
+sudo apt-get install virtualbox-6.1
+
+Replace virtualbox-6.1 by virtualbox-6.0 or virtualbox-5.2 to install the latest VirtualBox 6.0 or 5.2 build.
+
+What to do when experiencing The following signatures were invalid: BADSIG ... when refreshing the packages from the repository?
+
+# sudo -s -H
+# apt-get clean
+# rm /var/lib/apt/lists/*
+# rm /var/lib/apt/lists/partial/*
+# apt-get clean
+# apt-get update
+
+If you previously added the Oracle key(s) to your default keyring (now considered insecure), remove them again with:
+
+sudo apt-key remove 5CDFA2F683C52980AECF
+sudo apt-key remove D9C954422A4B98AB5139
+
+(As of VirtualBox 3.2, the signing key was changed. The old Sun public key for apt-secure can be downloaded  here. Likewise, the Oracle public key for distributions older than Debian 8 and Ubuntu 16.04 can be downloaded here.)
+
