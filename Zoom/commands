@@ -1,0 +1,8 @@
+
+https://linuxhint.com/install-zoom-debian-11/
+
+
+sudo dpkg -i zoom_amd64.deb
+
+First time will fail...
+Must first install a bunch of dependencies.
