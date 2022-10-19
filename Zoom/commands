@@ -1,7 +1,10 @@
 
 https://linuxhint.com/install-zoom-debian-11/
 
+Download binary from here:
+https://zoom.us/download?os=linux
 
+Install binary as follows:
 sudo dpkg -i zoom_amd64.deb
 
 First time will fail...
