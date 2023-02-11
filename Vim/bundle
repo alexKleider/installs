@@ -1,0 +1,4 @@
+
+
+# https://realpython.com/vim-and-python-a-match-made-in-heaven/#vim-extensions
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim

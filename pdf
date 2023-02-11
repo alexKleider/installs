@@ -1,0 +1,7 @@
+Did he try pdftotext? On Debian it's in the poppler-utils package.
+Some PDFs are impossible (they're just an image of text), others
+are very difficult (anything with a 2-column layout probably
+won't work, and even with some simple layouts you'll see spaces
+missing or other problems) but some PDFs convert just fine.
+And on the documents where pdftotext doesn't work, a PDF editor
+probably wouldn't do much better.

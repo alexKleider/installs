@@ -98,11 +98,3 @@ pip3 install virtualenvwrapper
 #   Then use rsync as follows:
 #   rsync -av --exclude '[.].+' alex@sourceIP:<source> <destination>
 
-# Problems burning cds solved with:
-# wodim -eject -tao  speed=2 dev=/dev/sr0 -v -data ~/Downloads/firmware-9.6.0-amd64-netinst.iso
-
-===================================================================
-
-# https://realpython.com/vim-and-python-a-match-made-in-heaven/#vim-extensions
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-

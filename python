@@ -1,0 +1,56 @@
+
+
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+pip install --user virtualenvwrapper
+echo "source virtualenvwrapper.sh" >> ~/.bashrc
+source ~/.bashrc
+mkvirtualenv --python=python3.6 p36
+
+Indeed this is why the recommendation these days is to install as
+  python -m pip install
+instead of standalone
+  pip install
+... that way the pip is sure to match the python, for when you're
+ using a particular virtualenv, etc.
+
+
+https://tecadmin.net/install-python-3-8-ubuntu/
+
+sudo apt-get install build-essential checkinstall
+sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev \
+    libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
+<checkinstall> not found but sees to be OK without it.
+cd /opt
+sudo wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tgz
+sudo tar xzf Python-3.8.2.tgz
+cd Python-3.8.2
+sudo ./configure --enable-optimizations
+sudo make altinstall
+python3.8 -V  # => Python-3.8.2
+cd /opt
+sudo rm -f Python-3.8.2.tgz
+
+
+Also note:
+> You could look for a PPA that has it. I installed 3.8 from
+> LP-PPA-deadsnakes. However the last time I looked they don't offer 3.8
+> anymore. They show 3.7 and 3.9. They say 3.8 comes with later versions
+> of Ubuntu. You could look there to see if maybe they have it buried
+> some place. There are other PPA's around, maybe on of them has it.
+>
+> Hope this helps,
+>
+> Jim
+
+
+Thanks, Jim, for your response.
+A few years ago I did indeed use this method
+(sudo add-apt-repository ppa:jonathonf/python-3.6)
+but didn't come across a reference to this method for
+current releases.
+It turns out, (as I've already posted,) local compilation
+worked out with no problems.
+Cheers,
+a

@@ -1,0 +1,5 @@
+
+
+# Problems burning cds solved with:
+# wodim -eject -tao  speed=2 dev=/dev/sr0 -v -data ~/Downloads/firmware-9.6.0-amd64-netinst.iso
+
