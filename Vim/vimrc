@@ -40,7 +40,8 @@ filetype plugin indent on   " required
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
-" Don't know where the following came from or what it does:
-" if has("autocmd")
-"   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-" endif
+" The following causes vim to open a file at the place where it
+" was last closed:
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif

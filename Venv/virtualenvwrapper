@@ -61,3 +61,7 @@ https://tecadmin.net/install-python-3-8-ubuntu/
 See also sister file p38.
 Whole thing might be pre-empted by content of pyenv
 
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+
