@@ -1,0 +1,4 @@
+# https://www.howtogeek.com/772548/how-to-install-a-deb-file-in-linux/
+sudo dpkg -i "ProtonMail-desktop-beta.deb"
+sudo apt install -f
+

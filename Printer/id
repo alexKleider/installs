@@ -1,3 +1,7 @@
+
+The lpinfo command seems depricated; can't find it anywhere.
+
+
 Run in Bolinas:
 alex@x301:~$ lpinfo -v
 network https
