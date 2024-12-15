@@ -7,6 +7,12 @@ https://medium.com/@gitudaniel/installing-virtualenvwrapper-for-python3-ad3dfea7
 
     # apt install python3-pip
     $ python3 -m pip install --user virtualenvwrapper
+#above didn't work so need to use pipx
+# apt install pipx
+$ pipx install virtualenv
+$ pipx install virtualenvwrapper
+This link might be helpfull (although it doesn't use pipx:)
+https://www.raspberrypi.com/news/using-python-with-virtual-environments-the-magpi-148/
 
 Note: listing of ~/.local/bin now yields:
 -rwxr-xr-x 1 alex alex   211 May 13 14:24 pbr
